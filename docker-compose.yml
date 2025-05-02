@@ -1,0 +1,35 @@
+services:
+  ssh.cyrhades.fr:
+    build: ssh
+  webssh.cyrhades.fr:
+    build: webssh
+    ports:
+    - ${PORT}:8888
+
+  note-a-bug-red-water:
+    image: anssi/fcsc2024-pwn-note-a-bug:latest
+    ports:
+      - ${PORT_SSH}:4000
+    environment:
+      - REPEAT=100 # allow to reuse the exploit with a libc leak (do not change value)
+
+  note-a-bug-dog-but-happy:
+    image: anssi/fcsc2024-pwn-note-a-bug:latest
+    ports:
+      - ${PORT_SSH2}:4000
+    environment:
+      - REPEAT=50 # allow to reuse the exploit with a libc leak (do not change value)
+    volumes:
+      - /dev/null:/bin/sh:ro # simulate a removal of /bin/sh in the A/D scenario (do not remove)
+
+  note-a-bug-nordic-mollusks:
+    image: anssi/fcsc2024-pwn-note-a-bug:latest
+    ports:
+      - ${PORT_SSH3}:4000
+    environment:
+      - REPEAT=1 # force to dev a leakless exploit (do not change value)
+
+  shovel-webapp:
+    image: anssi/fcsc2024-pwn-note-a-bug-shovel:latest
+    ports:
+      - ${PORT2}:8000
