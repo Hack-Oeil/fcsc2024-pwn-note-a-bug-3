@@ -11,6 +11,6 @@ Bienvenue sur le serveur SSH de Cyrhades
 
 Utilisez netcat pour accéder au challenge sur les serveurs: note-a-bug-red-water, note-a-bug-dog-but-happy, note-a-bug-nordic-mollusks
 
-*****:~$ nc note-a-bug-red-water:4000 ou nc note-a-bug-dog-but-happy:4001 ou nc note-a-bug-nordic-mollusks:4002
+*****:~$ nc note-a-bug-red-water 4000 ou nc note-a-bug-dog-but-happy 4001 ou nc note-a-bug-nordic-mollusks 4002
 
 Bonne chance !
